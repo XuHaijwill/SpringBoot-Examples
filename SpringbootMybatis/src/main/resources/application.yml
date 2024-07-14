@@ -1,9 +1,6 @@
 spring:
   application:
     name: SpringbootMybatis
-  datasource:
-    driver-class-name: net.sourceforge.jtds.jdbc.Driver
-    url: jdbc:jtds:sybase://192.168.146.132:8000/testdb;charset=cp936
-    username: sa
-    password: myPassword
+  profiles:
+    active: dev
 

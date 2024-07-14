@@ -7,7 +7,7 @@ import com.deepoove.poi.data.RowRenderData;
 import com.deepoove.poi.data.Rows;
 import com.deepoove.poi.data.Tables;
 import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
-import com.example.SpringbootMybatis.domain.Good;
+import com.example.SpringbootMybatis.domain.model.Good;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

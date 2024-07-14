@@ -1,4 +1,4 @@
-package com.example.SpringbootMybatis.domain;
+package com.example.SpringbootMybatis.domain.model;
 
 import lombok.Data;
 
