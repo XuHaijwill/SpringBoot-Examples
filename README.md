@@ -1,5 +1,11 @@
 # SpringBoot-Examples
 
+## Springboot源码阅读
+
+> Spring Boot 源码分析 - 剖析 @SpringBootApplication 注解
+> https://www.cnblogs.com/lifullmoon/p/14957751.html
+> https://www.skjava.com/series/article/1363961057
+
 ## Openjdk17
 https://github.com/adoptium/temurin17-binaries/releases/tag/jdk-17.0.5+8
 https://learn.microsoft.com/zh-cn/java/openjdk/download
