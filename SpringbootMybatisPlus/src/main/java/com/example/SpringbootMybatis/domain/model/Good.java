@@ -1,6 +1,9 @@
 package com.example.SpringbootMybatis.domain.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @ClassName Good
@@ -10,6 +13,9 @@ import lombok.Data;
  * @Version 1.0
  **/
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Good {
     private String name;
     private String price;

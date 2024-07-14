@@ -1,6 +1,9 @@
 package com.example.SpringbootMybatis.domain.bean;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -12,6 +15,9 @@ import java.util.Date;
  * @Version 1.0
  **/
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     private Long id;
