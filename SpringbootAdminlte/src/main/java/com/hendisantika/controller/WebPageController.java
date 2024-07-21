@@ -54,4 +54,9 @@ public class WebPageController {
     public String about() {
         return "about";
     }
+
+    @RequestMapping("/table")
+    public String table(Model model) {
+        return "table";
+    }
 }
