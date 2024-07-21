@@ -1,5 +1,6 @@
 package com.hendisantika.controller;
 
+import com.hendisantika.entity.Order;
 import com.hendisantika.entity.User;
 import com.hendisantika.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ public class WebPageController {
     @RequestMapping("/releaseNotice")
     public String releaseNotice(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("order",new Order());
 //        model.addAttribute("users", userRepository.findAll());
         return "releaseNotice";
     }

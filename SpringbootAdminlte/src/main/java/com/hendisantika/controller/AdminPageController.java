@@ -1,5 +1,6 @@
 package com.hendisantika.controller;
 
+import com.hendisantika.entity.Order;
 import com.hendisantika.entity.User;
 import com.hendisantika.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,10 @@ public class AdminPageController {
         return "user-list2";
     }
     @GetMapping("/releaseNotice/list2")
-    public void releaseNotice(Model model) {
+    public String releaseNotice(Order order, Model model) {
         model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("order", order);
+        return "releaseNotice";
     }
 
 
