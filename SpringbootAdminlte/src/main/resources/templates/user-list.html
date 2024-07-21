@@ -31,6 +31,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -135,7 +136,7 @@
             user.findAll = function () {
 
                 $.ajax({
-                    url: "http://localhost:8081/api/v1/user",
+                    url: "http://localhost:8080/api/v1/user",
                     type: "GET",
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader("Accept", "application/json");

@@ -14,7 +14,7 @@
     <name>springboot-adminlte3-template</name>
     <description>springboot-adminlte3-template</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

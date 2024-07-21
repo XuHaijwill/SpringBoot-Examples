@@ -1,6 +1,10 @@
 package com.hendisantika.controller;
 
+import com.hendisantika.entity.User;
+import com.hendisantika.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class WebPageController {
+
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/")
     public String index() {
         return "dashboard";
@@ -28,6 +36,13 @@ public class WebPageController {
     @GetMapping("/register")
     public String register() {
         return "register";
+    }
+
+    @RequestMapping("/releaseNotice")
+    public String releaseNotice(Model model) {
+        model.addAttribute("user", new User());
+//        model.addAttribute("users", userRepository.findAll());
+        return "releaseNotice";
     }
 
     @RequestMapping("/contact")
