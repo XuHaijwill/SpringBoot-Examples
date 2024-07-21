@@ -1,76 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Dashboard | Nadhif - Responsive Admin Template</title>
-    <!-- https://cloud.tencent.com/developer/article/2166123 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Checkout example · Bootstrap v5.3</title>
 
-    <!--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <!--    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">-->
 
-    <!--    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>-->
-    <!--    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <!--    <script th:href="@{/datetimepicker/js/moment-with-locales.js}"></script>-->
-    <!--    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>-->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/datetimepicker-4.17.47/css/bootstrap-datetimepicker.css}" rel="stylesheet" />
 
-    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/datetimepicker/css/bootstrap-datetimepicker.min.css}" rel="stylesheet"/>
-
-    <style>
-        #mytab thead {
-            background: #5488c4;
-        }
-    </style>
 </head>
+<body class="bg-body-tertiary">
 
-<body>
-<div class="row">
-    <div class='col-sm-6'>
-        <div class="form-group">
-            <label>选择日期：</label>
-            <!--指定 date标记-->
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control"/>
-                <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-            </div>
+
+
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" th:src="@{/assets/brand/bootstrap-logo.svg}" alt="" width="72" height="57">
+            <h2>Release Notice form</h2>
         </div>
-    </div>
-    <div class='col-sm-6'>
-        <div class="form-group">
-            <label>选择日期+时间：</label>
-            <!--指定 date标记-->
-            <div class='input-group date' id='datetimepicker2'>
-                <input type='text' class="form-control"/>
-                <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+        <form class="row g-3">
+
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
             </div>
-        </div>
-    </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+    <!--        <div class="col-md-6">
+                <input id="minOrderTimeStr" name="minOrderTimeStr" class="form-control" type="text" placeholder="订单最早时间" />
+            </div>-->
+            <div class="input-group date" >
+                <input id='minOrderTimeStr' type='text' class="form-control"  placeholder="订单最早时间" />
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+               </span>
+            </div>
+            <div class="col-md-6">
+                <input id="maxOrderTimeStr" name="maxOrderTimeStr"  class="form-control" type="text" placeholder="订单最晚时间"/>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Load CR</button>
+            </div>
+        </form>
+
+
+
+
+    </main>
+
+    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+        <p class="mb-1">&copy; 2017–2024 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
 </div>
 
-<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
-<!--    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>-->
-<script th:href="@{/datetimepicker/js/moment-with-locales.js}"></script>
-<script th:href="@{/datetimepicker/js/bootstrap-datetimepicker.min.js}"></script>
-<script th:href="@{/bootstrap/js/bootstrap.min.js}"></script>
 
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script th:src="@{/datetimepicker/js/moment-with-locales.js}"></script>
+<script th:src="@{/datetimepicker-4.17.47/js/bootstrap-datetimepicker.min.js}"></script>
 <script>
+    // $(function () {
+    //     $('#minOrderTimeStr').datetimepicker({
+    //         format: 'YYYY-MM-DD',
+    //         locale: moment.locale('zh-cn')
+    //     });
+    //     $('#maxOrderTimeStr').datetimepicker({
+    //         format: 'YYYY-MM-DD hh:mm',
+    //         locale: moment.locale('zh-cn')
+    //     });
+    // });
+
     $(function () {
-        $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD',
-            locale: moment.locale('zh-cn')
+        $('#minOrderTimeStr').datetimepicker({
+            defaultDate: "11/1/2013",
+            disabledDates: [
+                moment("12/25/2013"),
+                new Date(2013, 11 - 1, 21),
+                "11/22/2013 00:53"
+            ]
         });
-        $('#datetimepicker2').datetimepicker({
-            format: 'YYYY-MM-DD hh:mm',
-            locale: moment.locale('zh-cn')
+
+        $('#maxOrderTimeStr').datetimepicker({
+            defaultDate: "11/1/2013",
+            disabledDates: [
+                moment("12/25/2013"),
+                new Date(2013, 11 - 1, 21),
+                "11/22/2013 00:53"
+            ]
         });
     });
 </script>
-
 </body>
-
 </html>
