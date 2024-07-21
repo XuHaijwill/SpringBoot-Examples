@@ -5,6 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Add User</title>
+
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.2.0/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.2.0/plugins/toastr/toastr.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.2.0/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/jquery-confirm/css/jquery-confirm.min.css">
 </head>
 <body>
 
@@ -55,38 +64,59 @@
                      </div>-->
 
                     <div class="ibox-content" style="display: block;">
-                        <form action="orderManage_0_0_0">
+                        <form action="releaseNotice/list2" th:object="${order}">
                             <div class="row">
+                                <!--                                <div class="col-sm-2 m-b-xs">-->
+                                <!--                                    <select name="paymentType" id="paymentType" class="form-control">-->
+                                <!--                                        <option value="0" th:selected="${order.paymentType==0}">&#45;&#45;请选择支付类型&#45;&#45;</option>-->
+                                <!--                                        <option value="1" th:selected="${order.paymentType==1}">在线支付</option>-->
+                                <!--                                        <option value="2" th:selected="${order.paymentType==2}">货到付款</option>-->
+                                <!--                                    </select>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="col-sm-2 m-b-xs">-->
+                                <!--                                    <select name="status" id="status" class="form-control">-->
+                                <!--                                        <option value="0" th:selected="${order.status==0}">&#45;&#45;请选择状态&#45;&#45;</option>-->
+                                <!--                                        <option value="1" th:selected="${order.status==1}">未付款</option>-->
+                                <!--                                        <option value="2" th:selected="${order.status==2}">已付款</option>-->
+                                <!--                                        <option value="3" th:selected="${order.status==3}">未发货</option>-->
+                                <!--                                        <option value="4" th:selected="${order.status==4}">已发货</option>-->
+                                <!--                                        <option value="5" th:selected="${order.status==5}">交易成功</option>-->
+                                <!--                                        <option value="6" th:selected="${order.status==6}">交易关闭</option>-->
+                                <!--                                    </select>-->
+                                <!--                                </div>-->
                                 <div class="col-sm-2 m-b-xs">
-                                    <select name="paymentType" id="paymentType" class="form-control">
-                                        <option value="0" th:selected="${order.paymentType==0}">--请选择支付类型--</option>
-                                        <option value="1" th:selected="${order.paymentType==1}">在线支付</option>
-                                        <option value="2" th:selected="${order.paymentType==2}">货到付款</option>
-                                    </select>
+                                    <!--                                    <input id="minOrderTimeStr" name="minOrderTimeStr" class="form-control" type="text" th:value="${order.minOrderTimeStr}" placeholder="订单最早时间" />-->
+                                    <div class="input-group date" id="minOrderTimeStr" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                               data-target="#minOrderTimeStr" th:field="*{minOrderTimeStr}" required/>
+                                        <div class="input-group-append" data-target="#minOrderTimeStr"
+                                             data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2 m-b-xs">
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="0" th:selected="${order.status==0}">--请选择状态--</option>
-                                        <option value="1" th:selected="${order.status==1}">未付款</option>
-                                        <option value="2" th:selected="${order.status==2}">已付款</option>
-                                        <option value="3" th:selected="${order.status==3}">未发货</option>
-                                        <option value="4" th:selected="${order.status==4}">已发货</option>
-                                        <option value="5" th:selected="${order.status==5}">交易成功</option>
-                                        <option value="6" th:selected="${order.status==6}">交易关闭</option>
-                                    </select>
+                                    <div class="input-group date" id="maxOrderTimeStr" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                               data-target="#maxOrderTimeStr" th:field="*{maxOrderTimeStr}" required/>
+                                        <div class="input-group-append" data-target="#maxOrderTimeStr"
+                                             data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2 m-b-xs">
-                                    <input id="minOrderTimeStr" name="minOrderTimeStr" class="form-control" type="text" th:value="${order.minOrderTimeStr}" placeholder="订单最早时间" />
+                                    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-search"></i><strong>搜索</strong>
+                                    </button>
                                 </div>
                                 <div class="col-sm-2 m-b-xs">
-
-                                    <input id="maxOrderTimeStr" name="maxOrderTimeStr"  class="form-control" type="text" th:value="${order.maxOrderTimeStr}" placeholder="订单最晚时间"/>
-                                </div>
-                                <div class="col-sm-2 m-b-xs">
-                                    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;&nbsp;<strong>搜索</strong></button>
-                                </div>
-                                <div class="col-sm-2 m-b-xs">
-                                    <a th:href="@{'download2'}" class="btn btn-primary btn-block" >&nbsp;&nbsp;&nbsp;&nbsp;<strong>导出</strong></a>
+                                    <button class="btn btn-primary btn-success" id="btn_add" type="button"><i
+                                            class="fa fa-file"></i><strong>Export</strong></button>
+                                    <!--                                    <button type="button" id="btn_add" name="btn_add" class="btn btn-success"-->
+                                    <!--                                            title="导出" onclick="">-->
+                                    <!--                                        <i class="fa fa-file-o"></i> 新建-->
+                                    <!--                                    </button>-->
+                                    <!--                                    <a th:href="@{'download2'}" class="btn btn-primary btn-block" >&nbsp;&nbsp;&nbsp;&nbsp;<strong>导出</strong></a>-->
                                 </div>
                             </div>
                         </form>
@@ -100,107 +130,108 @@
 
                     </div>
 
-                    <div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>releaseVersion</label>
-                                    <input class="form-control" id="releaseVersion" placeholder="Enter email"
-                                           type="email" required>
+                    <!--   <div>
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>releaseVersion</label>
+                                       <input class="form-control" id="releaseVersion" placeholder="Enter email"
+                                              type="email" required>
 
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>release perple</label>
-                                    <input class="form-control" id="releasePeople" placeholder="Enter email"
-                                           type="email" required>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Date and time:</label>
-                                    <div class="input-group date" id="reservationdatetime"
-                                         data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
-                                               data-target="#reservationdatetime"/>
-                                        <div class="input-group-append" data-target="#reservationdatetime"
-                                             data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Date and time:</label>
-                                    <div class="input-group date" id="reservationdatetime1"
-                                         data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
-                                               data-target="#reservationdatetime"/>
-                                        <div class="input-group-append" data-target="#reservationdatetime"
-                                             data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>release perple</label>
+                                       <input class="form-control" id="releasePeople" placeholder="Enter email"
+                                              type="email" required>
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                           </div>
 
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Date and time range:</label>
-
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="far fa-clock"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control float-right" id="reservationtime">
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-
-                            </div>
-                            <!-- /.col -->
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="btn-group">
-                                        <button class="btn btn-info btn-search" id="search1" name="search"
-                                                onclick="user.findAll()">Load CR
-                                        </button>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-
-                            </div>
-                            <!-- /.col -->
-                        </div>
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Date and time:</label>
+                                       <div class="input-group date" id="reservationdatetime"
+                                            data-target-input="nearest">
+                                           <input type="text" class="form-control datetimepicker-input"
+                                                  data-target="#reservationdatetime"/>
+                                           <div class="input-group-append" data-target="#reservationdatetime"
+                                                data-toggle="datetimepicker">
+                                               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Date and time:</label>
+                                       <div class="input-group date" id="reservationdatetime1"
+                                            data-target-input="nearest">
+                                           <input type="text" class="form-control datetimepicker-input"
+                                                  data-target="#reservationdatetime"/>
+                                           <div class="input-group-append" data-target="#reservationdatetime"
+                                                data-toggle="datetimepicker">
+                                               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                           </div>
 
 
-                        <!--工具栏/-->
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Date and time range:</label>
 
-                        <!-- /.box-body -->
-                    </div>
+                                       <div class="input-group">
+                                           <div class="input-group-prepend">
+                                               <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                           </div>
+                                           <input type="text" class="form-control float-right" id="reservationtime">
+                                       </div>
+                                       &lt;!&ndash; /.input group &ndash;&gt;
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                               <div class="col-md-6">
 
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                           </div>
+
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <div class="btn-group">
+                                           <button class="btn btn-info btn-search" id="search1" name="search"
+                                                   onclick="user.findAll()">Load CR
+                                           </button>
+                                       </div>
+                                       &lt;!&ndash; /.input group &ndash;&gt;
+                                   </div>
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                               <div class="col-md-6">
+
+                               </div>
+                               &lt;!&ndash; /.col &ndash;&gt;
+                           </div>
+
+
+                           &lt;!&ndash;工具栏/&ndash;&gt;
+
+                           &lt;!&ndash; /.box-body &ndash;&gt;
+                       </div>-->
+
+                    <div class="row"></div>
                     <div class="row">
                         <table class="table table-bordered" id="list_table_json">
                             <thead>
@@ -235,9 +266,9 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
+                                    <h3 class="modal-title" id="addModalLabel">Release Information</h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                             aria-hidden="true">&times;</span></button>
-                                    <h3 class="modal-title" id="addModalLabel">新增用户信息</h3>
                                 </div>
                                 <div class="modal-body">
 
@@ -348,40 +379,301 @@
 
 <th:block layout:fragment="script">
 
+<!--    <script src="/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js"></script>
+    <script src="/webjars/AdminLTE/3.2.0/plugins/toastr/toastr.min.js"></script>
+    <script src="/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js"></script>-->
+
+    <!-- jQuery -->
     <script src="/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="/webjars/AdminLTE/3.2.0/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="/webjars/AdminLTE/3.2.0/plugins/toastr/toastr.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js"></script>
+    <script src="/jquery-confirm/js/jquery-confirm.min.js"></script>
+
     <script>
         console.log("release notice");
         var user = {};
 
-        $(document).ready(function () {
+        $(function () {
             //Date and time picker
-            $('#reservationdatetime').datetimepicker({icons: {time: 'far fa-clock'}});
+            $('#minOrderTimeStr').datetimepicker({
+                icons: {time: 'far fa-clock'}
+            });
 
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                locale: {
-                    format: 'MM/DD/YYYY hh:mm A'
+            $('#maxOrderTimeStr').datetimepicker({
+                icons: {time: 'far fa-clock'}
+            });
+
+            // $('#list_table_json').DataTable({
+            //     "paging": true,
+            //     "lengthChange": false,
+            //     "searching": false,
+            //     "ordering": true,
+            //     "info": true,
+            //     "autoWidth": false,
+            //     "responsive": true,
+            // });
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: true,
+                timer: 3000
+            });
+
+            /*加载添加用户信息模态框*/
+            $("#btn_add").click(function () {
+                $("#addModalLabel").text("Release Information");
+                $('#addModal').modal();
+            });
+            /*点击关闭模态框后重载页面*/
+            $("#refresh,#close1,#close2").click(function () {
+                window.location.reload();
+            });
+            $('#btn_submit1').on('click', function () {
+                var name1 = $("#name1").val();
+                if (name1 == "") {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: '姓名不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#name1").focus();
+                    //
+                    //         }
+                    //     },
+                    //
+                    // });
+
                 }
-            })
+                var gender1 = $("#gender1").val();
+                if (gender1 == "") {
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: '性别不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#gender1").focus();
+                    //
+                    //         }
+                    //     },
+                    //
+                    // });
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                }
+                var age1 = $("#age1").val();
+                if (age1 == "") {
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: '年龄不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#age1").focus();
+                    //
+                    //         }
+                    //     },
+                    //
+                    // });
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                }
+                var address1 = $("#address1").val();
+                if (address1 == "") {
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: '住址不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#address1").focus();
+                    //
+                    //         }
+                    //     },
+                    //
+                    // });
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                }
+                var qq1 = $("#qq1").val();
+                if (qq1 == "") {
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: 'qq账号不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#qq1").focus();
+                    //         }
+                    //     },
+                    //
+                    // });
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                }
+                var email1 = $("#email1").val();
+                if (email1 == "") {
+                    // $.alert({
+                    //     title: '提示信息',
+                    //     content: '邮箱不能为空!',
+                    //     buttons: {
+                    //         确定: function () {
+                    //             $("#email1").focus();
+                    //         }
+                    //     },
+                    //
+                    // });
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                    })
+                    return;
+                }
 
-            /** TODO: Function OnClick **/
+               /* $.confirm({
+                    title: '添加提示',
+                    content: '确认要添加吗？',
+                    icon: 'fa fa-question-circle',
+                    animation: 'scale',
+                    closeAnimation: 'scale',
+                    // opacity: 0.5,
+                    buttons: {
+                        'confirm': {
+                            text: '确定',
+                            btnClass: 'btn-blue',
+                            action: function () {
+                                //layer.load();
+                                $.ajax({
+                                    url: "[[@{/user/addUser}]]",
+                                    //secureuri : false,
+                                    dataType: 'json',//此时指定的是后台需要返回json字符串,前端自己解析,可以注释掉.后台直接返回map
+                                    data: {
+                                        name: name1,
+                                        gender: gender1,
+                                        age: age1,
+                                        address: address1,
+                                        qq: qq1,
+                                        email: email1
+                                    },
+                                    success: function (data, status) {
+                                        var arr = data.msg;
+                                        if (arr == "1") {
+                                            $.alert({
+                                                title: '提示信息',
+                                                content: '添加成功!',
+                                                buttons: {
+                                                    确定: function () {
+                                                        window.location.reload();
+                                                    }
+                                                },
 
-            /** TODO: Function **/
+                                            });
+                                        } else {
+                                            $.alert({
+                                                title: '提示信息',
+                                                content: '添加失败!',
+                                                buttons: {
+                                                    确定: function () {
+                                                    }
+                                                },
+
+                                            });
+
+                                        }
+                                    },
+                                    error: function (data, status, e) {
+                                        $.alert({
+                                            title: '提示信息',
+                                            content: '添加失败!',
+                                            buttons: {
+                                                确定: function () {
+                                                }
+                                            },
+
+                                        });
+                                    }
+                                });
+
+                            },
+                        },
+                        calcel: function () {
+                            //$.alert('你点击了<strong>取消</strong>');
+                        }
+                    }
+                });
+                */
+
+                // $.confirm({
+                //     title: 'Confirm!',
+                //     content: 'Simple confirm!',
+                //     buttons: {
+                //         confirm: function () {
+                //             $.alert('Confirmed!');
+                //         },
+                //         cancel: function () {
+                //             $.alert('Canceled!');
+                //         },
+                //         somethingElse: {
+                //             text: 'Something else',
+                //             btnClass: 'btn-blue',
+                //             keys: ['enter', 'shift'],
+                //             action: function(){
+                //                 $.alert('Something else?');
+                //             }
+                //         }
+                //     }
+                // });
+
+                $.ajax({
+                    url: "http://localhost:8087/releaseNotice/export",
+                    type: "GET",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Accept", "application/json");
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                    },
+                    success: function (data) {
+                        console.log("success");
+                        console.log(data);
+                        window.location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // var responseText = jQuery.parseJSON(jqXHR.responseText);
+                        // console.log(responseText);
+                        // console.log('Error: ' + textStatus + ' - ' + errorThrown);
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'error.'
+                        })
+                        // window.location.reload();
+                        $("#addModal").modal('hide');  //手动关闭
+                    }
+                });
 
 
-            /** TODO: OnLoad **/
+
+            });
+
         });
 
-        /*加载添加用户信息模态框*/
-        $("#btn_add").click(function () {
-            $("#addModalLabel").text("添加用户信息");
-            $('#addModal').modal();
-        });
-        /*点击关闭模态框后重载页面*/
-        $("#refresh,#close1,#close2").click(function () {
-            window.location.reload();
-        });
 
     </script>
 </th:block>
