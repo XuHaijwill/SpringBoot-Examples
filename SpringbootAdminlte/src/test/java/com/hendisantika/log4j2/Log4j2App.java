@@ -19,5 +19,6 @@ public class Log4j2App {
     public void test1(){
         log.trace("trace1234");
         log.info("info123456");
+        log.error("error12345");
     }
 }

@@ -1,0 +1,127 @@
+<configuration status="warn" monitorInterval="30">
+<Properties>
+    <!-- 日志显示模板,显示内容的格式如下 -->
+    <Property name="LOG_HOME">${sys:log.home}</Property>
+    <!-- [21:55:33:047] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext -->
+    <Property name="log_pattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+    <!-- 保存日志文件目录 -->
+    <Property name="file_path" value="${sys:user.home}/logs/configservice-test"/>
+    <!-- 日志文件的最大容量，超过该值就进行备份 -->
+    <Property name="file_max_size" value="10MB"/>
+    <!-- 备份的文件夹名称 如下为：2020-02 -->
+    <Property name="backup_folder" value="$${date:yyyy-MM}"/>
+    <!-- 备份文件的后缀，日志文件超过file_max_size会备份到filePattern指定的目录下 -->
+    <!-- 并开启日志压缩，避免太大 -->
+    <Property name="backup_file_suffix" value="-%d{yyyy-MM-dd}-%i.log.zip"/>
+</Properties>
+
+
+<!--定义appender-->
+<appenders>
+
+    <!--控制台的输出配置-->
+    <console name="Console" target="SYSTEM_OUT">
+        <!-- 设置控制台只输出INFO及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+        <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <!--输出日志的格式-->
+        <PatternLayout pattern="${log_pattern}"/>
+    </console>
+
+    <!-- 所有的日志信息会打印到此文件中，append=false每次启动程序会自动清空 -->
+    <!-- <File name="all" fileName="${file_path}/all.log" append="true">
+        <PatternLayout pattern="${log_pattern}"/>
+    </File>-->
+
+    <!--
+    该RollingFile存储INFO级别的日志，
+    默认存储到 fileName 文件中
+    超过SizeBasedTriggeringPolicy的设定值，则存储到 filePattern 文件中
+    -->
+    <RollingFile name="RollingFileDebug" fileName="${file_path}/rolling-debug.log"
+                 filePattern="${file_path}/${backup_folder}/debug${backup_file_suffix}">
+        <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+        <Filters>
+            <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Filters>
+
+        <!-- 写入日志文件的模板 -->
+        <PatternLayout pattern="${log_pattern}"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy/>
+            <SizeBasedTriggeringPolicy size="${file_max_size}"/>
+        </Policies>
+        <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，超过该数量，会滚动删除前面的记录 -->
+        <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+    <RollingFile name="RollingFileInfo" fileName="${file_path}/rolling-info.log"
+                 filePattern="${file_path}/${backup_folder}/info${backup_file_suffix}">
+        <Filters>
+            <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Filters>
+        <!-- 写入日志文件的模板 -->
+        <PatternLayout pattern="${log_pattern}"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy/>
+            <SizeBasedTriggeringPolicy size="${file_max_size}"/>
+        </Policies>
+        <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，超过该数量，会滚动删除前面的记录 -->
+        <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+
+    <RollingFile name="RollingFileWarn" fileName="${file_path}/rolling-warn.log"
+                 filePattern="${file_path}/${backup_folder}/warn${backup_file_suffix}">
+        <Filters>
+            <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Filters>
+        <PatternLayout pattern="${log_pattern}"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy/>
+            <SizeBasedTriggeringPolicy size="${file_max_size}"/>
+        </Policies>
+    </RollingFile>
+
+    <RollingFile name="RollingFileError" fileName="${file_path}/rolling-error.log"
+                 filePattern="${file_path}/${backup_folder}/error${backup_file_suffix}">
+        <Filters>
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Filters>
+        <PatternLayout pattern="${log_pattern}"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy/>
+            <SizeBasedTriggeringPolicy size="${file_max_size}"/>
+        </Policies>
+    </RollingFile>
+
+</appenders>
+
+<!-- 只有定义了logger并使用appender-ref，appender才会生效 -->
+<loggers>
+    <AsyncLogger name="com.hongcan.srv.basetest" additivity="false" includeLocation="true">
+        <appender-ref ref="RollingFileInfo"  />
+        <appender-ref ref="RollingFileDebug" />
+        <appender-ref ref="RollingFileWarn"  />
+        <appender-ref ref="RollingFileError" />
+    </AsyncLogger>
+
+    <AsyncLogger name="io.netty" level="debug" additivity="false" includeLocation="true">
+        <appender-ref ref="RollingFileDebug"/>
+    </AsyncLogger>
+
+    <!-- 正式环境下,要求关闭console  -->
+    <root level="all">
+        <appender-ref ref="Console"/>
+    </root>
+
+    <!--注: 防止 Log4j2 退出时报OOME
+    1 混合异步和同步Logger；root logger 为同步，其它为异步(如果additivity为false同步也行)
+    2 AsyncLogger 的additivity属性设置为false
+    -->
+</loggers>
+
+</configuration>
