@@ -1,8 +1,5 @@
 package com.hendisantika.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.hendisantika.entity.Result;
-import com.hendisantika.entity.ResultResponse;
 import com.hendisantika.entity.User;
 import com.hendisantika.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

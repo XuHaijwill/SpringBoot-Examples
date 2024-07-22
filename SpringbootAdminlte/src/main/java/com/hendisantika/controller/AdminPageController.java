@@ -3,6 +3,7 @@ package com.hendisantika.controller;
 import com.hendisantika.entity.Order;
 import com.hendisantika.entity.User;
 import com.hendisantika.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * Time: 08.41
  */
 @Controller
+@Slf4j
 public class AdminPageController {
     @Autowired
     private UserRepository userRepository;
@@ -35,6 +37,7 @@ public class AdminPageController {
     }
     @GetMapping("/releaseNotice/list2")
     public String releaseNotice(Order order, Model model) {
+        log.info("releaseNotice...............");
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("order", order);
         return "releaseNotice";
