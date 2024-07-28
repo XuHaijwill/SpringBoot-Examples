@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:my="http://company.com/myloyal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <my:searchCustomerBookings>
+         <my:cin>1</my:cin>
+         <my:fromDate>2014-12-01</my:fromDate>
+         <my:toDate>2014-12-31</my:toDate>
+      </my:searchCustomerBookings>
+   </soapenv:Body>
+</soapenv:Envelope>

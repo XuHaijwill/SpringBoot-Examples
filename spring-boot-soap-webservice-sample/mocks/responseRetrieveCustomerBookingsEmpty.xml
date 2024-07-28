@@ -1,0 +1,9 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns3:retrieveCustomerBookingsResponse xmlns:ns2="http://company.com/myloyal/domain"
+                                            xmlns:ns3="http://company.com/myloyal">
+         <ns3:bookingList/>
+      </ns3:retrieveCustomerBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

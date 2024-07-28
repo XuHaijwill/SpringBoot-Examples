@@ -1,0 +1,250 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns3:searchCustomerBookingsResponse xmlns:ns2="http://company.com/myloyal/domain"
+                                          xmlns:ns3="http://company.com/myloyal">
+         <ns3:bookingList>
+            <ns3:booking>
+               <ns2:bookingRef>12345</ns2:bookingRef>
+               <ns2:customerId>1</ns2:customerId>
+               <ns2:journey departureTime="2014-12-24T14:20:00Z">
+                  <ns2:id>X34JK</ns2:id>
+                  <ns2:name>London -&gt; Paris</ns2:name>
+                  <ns2:origin>
+                     <ns2:id>D1234J</ns2:id>
+                     <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                  </ns2:origin>
+                  <ns2:destination>
+                     <ns2:id>G12004J</ns2:id>
+                     <ns2:name>Gare du Nord - Paris</ns2:name>
+                  </ns2:destination>
+                  <ns2:leg order="1">
+                     <ns2:id>675</ns2:id>
+                     <ns2:station>
+                        <ns2:id>D1234J</ns2:id>
+                        <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:leg order="2">
+                     <ns2:id>105</ns2:id>
+                     <ns2:station>
+                        <ns2:id>G12004J</ns2:id>
+                        <ns2:name>Gare du Nord - Paris</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:direction>OUTBOUND</ns2:direction>
+                  <ns2:carrier>
+                     <ns2:id>968</ns2:id>
+                     <ns2:name>company Link</ns2:name>
+                  </ns2:carrier>
+                  <ns2:platform>7</ns2:platform>
+                  <ns2:seat>G7</ns2:seat>
+                  <ns2:seat>G8</ns2:seat>
+               </ns2:journey>
+               <ns2:journey departureTime="2015-01-05T14:20:00Z">
+                  <ns2:id>Z34JK</ns2:id>
+                  <ns2:name>Paris -&gt; London</ns2:name>
+                  <ns2:origin>
+                     <ns2:id>G12004J</ns2:id>
+                     <ns2:name>Gare du Nord - Paris</ns2:name>
+                  </ns2:origin>
+                  <ns2:destination>
+                     <ns2:id>D1234J</ns2:id>
+                     <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                  </ns2:destination>
+                  <ns2:leg order="2">
+                     <ns2:id>105</ns2:id>
+                     <ns2:station>
+                        <ns2:id>G12004J</ns2:id>
+                        <ns2:name>Gare du Nord - Paris</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:leg order="1">
+                     <ns2:id>675</ns2:id>
+                     <ns2:station>
+                        <ns2:id>D1234J</ns2:id>
+                        <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:direction>INBOUND</ns2:direction>
+                  <ns2:carrier>
+                     <ns2:id>968</ns2:id>
+                     <ns2:name>company Link</ns2:name>
+                  </ns2:carrier>
+                  <ns2:platform>D</ns2:platform>
+                  <ns2:seat>E7</ns2:seat>
+                  <ns2:seat>E8</ns2:seat>
+               </ns2:journey>
+               <ns2:passenger dateOfBirth="1970-12-20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:title>Mr</ns2:title>
+                  <ns2:name>John</ns2:name>
+                  <ns2:surname>Smith</ns2:surname>
+                  <ns2:type>ADULT</ns2:type>
+               </ns2:passenger>
+               <ns2:passenger dateOfBirth="1970-12-20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:title>Miss</ns2:title>
+                  <ns2:name>Amelie</ns2:name>
+                  <ns2:surname>Smith</ns2:surname>
+                  <ns2:type>ADULT</ns2:type>
+               </ns2:passenger>
+               <ns2:extra>
+                  <ns2:id>1</ns2:id>
+                  <ns2:name>Business Class</ns2:name>
+                  <ns2:description>Business Class.</ns2:description>
+               </ns2:extra>
+               <ns2:costSummary discountAmount="100.0" grossAmount="220.0" taxesAmount="40.0">
+                  <ns2:costingItem quantity="2" totalAmount="100.0" unitAmount="50.0">
+                     <ns2:id>1</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - London-&gt;Paris</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="140.0" unitAmount="70.0">
+                     <ns2:id>2</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Paris-&gt;London</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="20.0" unitAmount="10.0">
+                     <ns2:id>3</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Business extra
+                        London-&gt;Paris</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="20.0" unitAmount="10.0">
+                     <ns2:id>4</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Business extra
+                        Paris-&gt;London</ns2:description>
+                  </ns2:costingItem>
+               </ns2:costSummary>
+               <ns2:loyaltyPoints numPoints="20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:bookingRef>12345</ns2:bookingRef>
+                  <ns2:name>company loyalty points</ns2:name>
+               </ns2:loyaltyPoints>
+            </ns3:booking>
+            <ns3:booking>
+               <ns2:bookingRef>34567</ns2:bookingRef>
+               <ns2:customerId>1</ns2:customerId>
+               <ns2:journey departureTime="2015-01-15T11:20:00Z">
+                  <ns2:id>X34JK</ns2:id>
+                  <ns2:name>London -&gt; Paris</ns2:name>
+                  <ns2:origin>
+                     <ns2:id>D1234J</ns2:id>
+                     <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                  </ns2:origin>
+                  <ns2:destination>
+                     <ns2:id>G12004J</ns2:id>
+                     <ns2:name>Gare du Nord - Paris</ns2:name>
+                  </ns2:destination>
+                  <ns2:leg order="1">
+                     <ns2:id>675</ns2:id>
+                     <ns2:station>
+                        <ns2:id>D1234J</ns2:id>
+                        <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:leg order="2">
+                     <ns2:id>105</ns2:id>
+                     <ns2:station>
+                        <ns2:id>G12004J</ns2:id>
+                        <ns2:name>Gare du Nord - Paris</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:direction>OUTBOUND</ns2:direction>
+                  <ns2:carrier>
+                     <ns2:id>968</ns2:id>
+                     <ns2:name>company Link</ns2:name>
+                  </ns2:carrier>
+                  <ns2:platform>7</ns2:platform>
+                  <ns2:seat>G7</ns2:seat>
+                  <ns2:seat>G8</ns2:seat>
+               </ns2:journey>
+               <ns2:journey departureTime="2015-01-16T11:20:00Z">
+                  <ns2:id>Z34JK</ns2:id>
+                  <ns2:name>Paris -&gt; London</ns2:name>
+                  <ns2:origin>
+                     <ns2:id>G12004J</ns2:id>
+                     <ns2:name>Gare du Nord - Paris</ns2:name>
+                  </ns2:origin>
+                  <ns2:destination>
+                     <ns2:id>D1234J</ns2:id>
+                     <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                  </ns2:destination>
+                  <ns2:leg order="2">
+                     <ns2:id>105</ns2:id>
+                     <ns2:station>
+                        <ns2:id>G12004J</ns2:id>
+                        <ns2:name>Gare du Nord - Paris</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:leg order="1">
+                     <ns2:id>675</ns2:id>
+                     <ns2:station>
+                        <ns2:id>D1234J</ns2:id>
+                        <ns2:name>Kings Cross St Pancrass - London</ns2:name>
+                     </ns2:station>
+                  </ns2:leg>
+                  <ns2:direction>INBOUND</ns2:direction>
+                  <ns2:carrier>
+                     <ns2:id>968</ns2:id>
+                     <ns2:name>company Link</ns2:name>
+                  </ns2:carrier>
+                  <ns2:platform>D</ns2:platform>
+                  <ns2:seat>E7</ns2:seat>
+                  <ns2:seat>E8</ns2:seat>
+               </ns2:journey>
+               <ns2:passenger dateOfBirth="1970-12-20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:title>Mr</ns2:title>
+                  <ns2:name>John</ns2:name>
+                  <ns2:surname>Smith</ns2:surname>
+                  <ns2:type>ADULT</ns2:type>
+               </ns2:passenger>
+               <ns2:passenger dateOfBirth="1970-12-20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:title>Miss</ns2:title>
+                  <ns2:name>Amelie</ns2:name>
+                  <ns2:surname>Smith</ns2:surname>
+                  <ns2:type>ADULT</ns2:type>
+               </ns2:passenger>
+               <ns2:extra>
+                  <ns2:id>1</ns2:id>
+                  <ns2:name>Business Class</ns2:name>
+                  <ns2:description>Business Class.</ns2:description>
+               </ns2:extra>
+               <ns2:costSummary discountAmount="100.0" grossAmount="220.0" taxesAmount="40.0">
+                  <ns2:costingItem quantity="2" totalAmount="100.0" unitAmount="50.0">
+                     <ns2:id>1</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - London-&gt;Paris</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="140.0" unitAmount="70.0">
+                     <ns2:id>2</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Paris-&gt;London</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="20.0" unitAmount="10.0">
+                     <ns2:id>3</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Business extra
+                        London-&gt;Paris</ns2:description>
+                  </ns2:costingItem>
+                  <ns2:costingItem quantity="2" totalAmount="20.0" unitAmount="10.0">
+                     <ns2:id>4</ns2:id>
+                     <ns2:name>2 x ADULT</ns2:name>
+                     <ns2:description>2 Adults - Business extra
+                        Paris-&gt;London</ns2:description>
+                  </ns2:costingItem>
+               </ns2:costSummary>
+               <ns2:loyaltyPoints numPoints="20">
+                  <ns2:id>1</ns2:id>
+                  <ns2:bookingRef>34567</ns2:bookingRef>
+                  <ns2:name>company loyalty points</ns2:name>
+               </ns2:loyaltyPoints>
+            </ns3:booking>
+         </ns3:bookingList>
+      </ns3:searchCustomerBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

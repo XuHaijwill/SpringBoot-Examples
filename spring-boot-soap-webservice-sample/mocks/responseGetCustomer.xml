@@ -1,0 +1,26 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:getCustomerProfileDataResponse xmlns:ns2="http://company.com/myloyal/domain"
+                                            xmlns:ns3="http://company.com/myloyal">
+            <ns3:customerProfile dateOfBirth="1970-01-20">
+                <ns2:id>1</ns2:id>
+                <ns2:title>Mr</ns2:title>
+                <ns2:name>John</ns2:name>
+                <ns2:surname>Smith</ns2:surname>
+                <ns2:telephoneContactNum>
+                    <ns2:telephoneType>HOME</ns2:telephoneType>
+                    <ns2:countryCode>+44</ns2:countryCode>
+                    <ns2:number>02049490303</ns2:number>
+                </ns2:telephoneContactNum>
+                <ns2:address>
+                    <ns2:addressLine1>Flat 1, 22 Test Building</ns2:addressLine1>
+                    <ns2:addressLine2>Shoreditch High Street</ns2:addressLine2>
+                    <ns2:postCode>E1 030</ns2:postCode>
+                    <ns2:city>London</ns2:city>
+                    <ns2:countryCode>UK</ns2:countryCode>
+                </ns2:address>
+            </ns3:customerProfile>
+        </ns3:getCustomerProfileDataResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,82 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://company.com/myloyal" xmlns:ns1="http://company.com/myloyal/domain" elementFormDefault="qualified" targetNamespace="http://company.com/myloyal">
+    <xs:import namespace="http://company.com/myloyal/domain" schemaLocation="domain.xsd"/>
+    <xs:complexType name="error">
+        <xs:sequence>
+            <xs:element type="xs:string" name="code" minOccurs="0"/>
+            <xs:element type="xs:string" name="message" minOccurs="0"/>
+            <xs:element type="xs:string" name="description" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loyaltyPointsList">
+        <xs:sequence>
+            <xs:element type="ns1:loyaltyPoints" name="loyaltyPoints" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bookingList">
+        <xs:sequence>
+            <xs:element type="ns1:booking" name="booking" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getCustomerProfileData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="cin" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getCustomerProfileDataResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="ns1:customer" name="customerProfile" minOccurs="0"/>
+                <xs:element type="tns:error" name="error" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="retrieveCustomerBookings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="cin" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="retrieveCustomerBookingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="tns:bookingList" name="bookingList" minOccurs="0"/>
+                <xs:element type="tns:error" name="error" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="searchCustomerBookings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="cin" minOccurs="0"/>
+                <xs:element type="xs:string" name="fromDate" minOccurs="0"/>
+                <xs:element type="xs:string" name="toDate" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="searchCustomerBookingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="tns:bookingList" name="bookingList" minOccurs="0"/>
+                <xs:element type="tns:error" name="error" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="retrieveCustomerLoyaltyPoints">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="cin" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="retrieveCustomerLoyaltyPointsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="tns:loyaltyPointsList" name="loyaltyPointsList" minOccurs="0"/>
+                <xs:element type="tns:error" name="error" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

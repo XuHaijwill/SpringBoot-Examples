@@ -1,0 +1,20 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns3:retrieveCustomerLoyaltyPointsResponse xmlns:ns2="http://company.com/myloyal/domain"
+                                                 xmlns:ns3="http://company.com/myloyal">
+         <ns3:loyaltyPointsList>
+            <ns3:loyaltyPoints numPoints="20">
+               <ns2:id>1</ns2:id>
+               <ns2:bookingRef>12345</ns2:bookingRef>
+               <ns2:name>Loyalty points</ns2:name>
+            </ns3:loyaltyPoints>
+            <ns3:loyaltyPoints numPoints="20">
+               <ns2:id>2</ns2:id>
+               <ns2:bookingRef>34567</ns2:bookingRef>
+               <ns2:name>Loyalty points</ns2:name>
+            </ns3:loyaltyPoints>
+         </ns3:loyaltyPointsList>
+      </ns3:retrieveCustomerLoyaltyPointsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

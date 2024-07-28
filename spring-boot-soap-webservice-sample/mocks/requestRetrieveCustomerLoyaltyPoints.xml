@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:my="http://company.com/myloyal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <my:retrieveCustomerLoyaltyPoints>
+         <my:cin>1</my:cin>
+      </my:retrieveCustomerLoyaltyPoints>
+   </soapenv:Body>
+</soapenv:Envelope>
