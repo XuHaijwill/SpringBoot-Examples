@@ -27,3 +27,7 @@ Search customer bookings:
 curl --header "content-type: text/xml" -d @requestSearchCustomerBookings.xml http://localhost:8080/ws
 
 Get customer Loyalty points:
+curl --header "content-type: text/xml" -d @requestRetrieveCustomerLoyaltyPoints.xml http://localhost:8080/ws
+
+--------------------
+git clone https://github.com/jmbataller/spring-boot-soap-webservice-sample.git
