@@ -13,7 +13,7 @@
         <property name="LOG_PATTERN_COLOR" value="%style{%d{ISO8601}}{bright,green} %highlight{%-5level} [%style{%t}{bright,blue}] %style{%C{}}{bright,yellow}: %msg%n%style{%throwable}{red}" />
 
         <!-- 定义日志存储的路径，不要配置相对路径 -->
-        <property name="FILE_PATH" value="D://data/log/com.demo"/>
+        <property name="FILE_PATH" value="C://data/log/com.demo"/>
         <property name="FILE_NAME" value="com.demo" />
     </Properties>
 
