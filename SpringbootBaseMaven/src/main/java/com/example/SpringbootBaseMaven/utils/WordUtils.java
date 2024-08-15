@@ -9,7 +9,6 @@ import org.docx4j.fonts.PhysicalFonts;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.org.apache.poi.util.IOUtils;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.UUID;
 @Slf4j
@@ -26,8 +25,8 @@ public class WordUtils {
      * @return pdf 输出流
      * @throws Exception 可能为Docx4JException, FileNotFoundException, IOException等
      */
-    public static void convertDocxToPdf(byte[] body , HttpServletResponse response) throws Exception {
-        response.setContentType("application/pdf");
+//    public static void convertDocxToPdf(byte[] body , HttpServletResponse response) throws Exception {
+//        response.setContentType("application/pdf");
 //        File docxFile = FileUtil.byteToFile(body, UUID.randomUUID().toString() + ".docx");
 //        try {
 //            WordprocessingMLPackage mlPackage = WordprocessingMLPackage.load(docxFile);
@@ -38,7 +37,7 @@ public class WordUtils {
 //            log.error("docx文档转换为PDF失败");
 //        }
 //        FileUtil.deleteTempFile(docxFile);
-    }
+//    }
 
 
 
