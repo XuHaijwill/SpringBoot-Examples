@@ -27,7 +27,7 @@ import java.util.HashMap;
  * @Date 2024/7/14 16:07
  * @Version 1.0
  **/
-@SpringBootTest
+//@SpringBootTest
 public class WordPoiTest {
 
     private String filePath="C:\\xhj\\sources\\tmp\\";
