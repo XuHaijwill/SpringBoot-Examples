@@ -1,27 +1,41 @@
 package com.example.SpringbootBaseMaven.utils;
 
-import com.itextpdf.html2pdf.ConverterProperties;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider;
+import com.lowagie.text.pdf.BaseFont;
+import org.xhtmlrenderer.pdf.ITextFontResolver;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 public class Html2PDF {
 
+    public boolean convertHtmlToPdf(String inputFile, String outputFile)
+            throws Exception {
 
-    public static void main(String[] args) throws IOException {
-        String htmlTemplate = "C:\\xhj\\sources\\tmp\\a.html";
-        // 默认加载系统所有字体，设置默认字体为微软雅黑
-        // 字体需要生效的话，需要安装ttf或otf结尾的字体，ttc结尾的不生效，而且需要为所有用户安装
-        DefaultFontProvider defaultFontProvider = new DefaultFontProvider(false, false, true, "Microsoft YaHei");
-        ConverterProperties converterProperties = new ConverterProperties();
-        converterProperties.setFontProvider(defaultFontProvider);
-        // 加载中文字体, 创建一个输出流
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        HtmlConverter.convertToPdf(htmlTemplate, bos, converterProperties);
-        OutputStream outputStream = new FileOutputStream("output1.pdf"); // 初始化 outputStream
-        bos.writeTo(outputStream);
+        OutputStream os = new FileOutputStream(outputFile);
+        ITextRenderer renderer = new ITextRenderer();
+        String url = new File(inputFile).toURI().toURL().toString();
+        renderer.setDocument(url);
+        // 解决中文支持问题
+        ITextFontResolver fontResolver = renderer.getFontResolver();
+        fontResolver.addFont("C:/Windows/Fonts/simsunb.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        //解决图片的相对路径问题
+        renderer.getSharedContext().setBaseURL("file:/D:/test");
+        renderer.layout();
+        renderer.createPDF(os);
+        os.flush();
+        os.close();
+        return true;
+    }
+
+
+    public   static  void  main(String [] args){
+        Html2PDF html2Pdf =new Html2PDF();
+        try {
+            html2Pdf.convertHtmlToPdf("D:\\1.html","D:\\index.pdf");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
