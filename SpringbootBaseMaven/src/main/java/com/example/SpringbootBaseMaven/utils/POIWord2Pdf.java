@@ -19,7 +19,7 @@ public class POIWord2Pdf {
 
             //读取word文档
             XWPFDocument document = null;
-            try (InputStream in = Files.newInputStream(Paths.get("C:\\xhj\\sources\\tmp\\output.docx"))) {
+            try (InputStream in = Files.newInputStream(Paths.get("D:\\xhj\\sources\\tmp\\output.docx"))) {
                 document = new XWPFDocument(in);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -27,7 +27,7 @@ public class POIWord2Pdf {
 
             //将word转成pdf
             PdfOptions options = PdfOptions.create();
-            try (OutputStream outPDF = Files.newOutputStream(Paths.get("C:\\xhj\\sources\\tmp\\output_0815.pdf"))) {
+            try (OutputStream outPDF = Files.newOutputStream(Paths.get("D:\\xhj\\sources\\tmp\\output_0815.pdf"))) {
                 PdfConverter.getInstance().convert(document, outPDF, options);
             } catch (IOException e) {
                 e.printStackTrace();

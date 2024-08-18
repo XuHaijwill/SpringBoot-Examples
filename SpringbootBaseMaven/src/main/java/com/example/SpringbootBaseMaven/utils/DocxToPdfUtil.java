@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DocxToPdfUtil {
     // windows 生成目录
-    private static String winDirUrl = "C:\\xhj\\sources\\tmp\\";
+    private static String winDirUrl = "D:\\xhj\\sources\\tmp\\";
 
     /**
      * 通过documents4j 实现word转pdf

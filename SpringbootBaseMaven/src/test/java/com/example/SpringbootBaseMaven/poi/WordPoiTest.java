@@ -30,7 +30,7 @@ import java.util.HashMap;
 //@SpringBootTest
 public class WordPoiTest {
 
-    private String filePath="C:\\xhj\\sources\\tmp\\";
+    private String filePath="D:\\xhj\\sources\\tmp\\";
 
     @Test
     public void test1() {
@@ -47,7 +47,7 @@ public class WordPoiTest {
 
         try {
             // 写出到文件
-            template.writeAndClose(new FileOutputStream("C:\\xhj\\sources\\tmp\\output.docx"));
+            template.writeAndClose(new FileOutputStream("D:\\xhj\\sources\\tmp\\output.docx"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

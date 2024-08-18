@@ -33,7 +33,7 @@ public class Html2PDF {
     public   static  void  main(String [] args){
         Html2PDF html2Pdf =new Html2PDF();
         try {
-            html2Pdf.convertHtmlToPdf("D:\\1.html","D:\\index.pdf");
+            html2Pdf.convertHtmlToPdf("D:\\xhj\\sources\\tmp\\ab.html","D:\\xhj\\sources\\tmp\\ab.pdf");
         } catch (Exception e) {
             e.printStackTrace();
         }

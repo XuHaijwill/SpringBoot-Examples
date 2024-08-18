@@ -14,12 +14,12 @@ public class Doc2Pdf {
 
     public static void main(String[] args) throws IOException, DocumentException {
         // 加载Word文件
-        FileInputStream fis = new FileInputStream("C:\\xhj\\sources\\tmp\\output.docx");
+        FileInputStream fis = new FileInputStream("D:\\xhj\\sources\\tmp\\output.docx");
         XWPFDocument document = new XWPFDocument(fis);
 
         // 创建PDF文档
         Document pdfDocument = new Document();
-        PdfWriter.getInstance(pdfDocument, new FileOutputStream("C:\\xhj\\sources\\tmp\\output_123.pdf"));
+        PdfWriter.getInstance(pdfDocument, new FileOutputStream("D:\\xhj\\sources\\tmp\\output_123.pdf"));
         pdfDocument.open();
 
     }

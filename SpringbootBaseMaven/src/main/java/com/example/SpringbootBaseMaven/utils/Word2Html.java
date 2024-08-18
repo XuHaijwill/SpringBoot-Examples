@@ -15,9 +15,9 @@ import java.io.FileOutputStream;
  * https://github.com/sunmaolin/wordToHtml/blob/master/docxToHtml/src/test/java/TestHtml.java
  */
 public class Word2Html {
-    private static final String sourceFile = "C:\\xhj\\sources\\tmp\\output.docx";
-    private static final String targetFile = "C:\\xhj\\sources\\tmp\\ab.html";
-    private static final String imageDir = "C:\\xhj\\sources\\tmp\\aImg";
+    private static final String sourceFile = "D:\\xhj\\sources\\tmp\\output.docx";
+    private static final String targetFile = "D:\\xhj\\sources\\tmp\\ab.html";
+    private static final String imageDir = "D:\\xhj\\sources\\tmp\\aImg";
 
     /**
      * .docx文档转html（老版本使用方法）

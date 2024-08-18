@@ -15,7 +15,7 @@ import java.util.UUID;
 public class WordUtils {
 
     public static void main(String[] args) throws Exception {
-        WordUtils.convertDocxToPdf("C:\\xhj\\sources\\tmp\\output.docx","C:\\xhj\\sources\\tmp\\test.pdf");
+        WordUtils.convertDocxToPdf("D:\\xhj\\sources\\tmp\\output.docx","D:\\xhj\\sources\\tmp\\test.pdf");
     }
 
     /**

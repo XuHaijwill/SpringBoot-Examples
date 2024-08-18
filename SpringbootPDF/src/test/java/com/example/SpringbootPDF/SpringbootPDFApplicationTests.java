@@ -1,4 +1,4 @@
-package com.example.SpringbootBaseMaven;
+package com.example.SpringbootPDF;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
