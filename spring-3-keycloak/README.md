@@ -28,3 +28,9 @@ https://developers.redhat.com/articles/2023/07/24/how-integrate-spring-boot-3-sp
 This code is provided "as is" without any guarantee whatsoever. 
 Feel free to fork, add, remove, change, or do whatever you want with it. 
 ```
+
+[keycloak-鉴权springboot3后端服务](https://hahaha.fmy1024.cn/html_online/3401_139134991online.html)
+```angular2html
+keycloak-spring-boot-starter
+```
+[SpringBoot开发Keycloak token的获取以及校验](https://blog.csdn.net/m0_46267097/article/details/106211466)
