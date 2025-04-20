@@ -4,9 +4,9 @@
 A sample java code to demonstrate a Spring Boot 3 integration with Keycloak 17. It utilize Keycloak login page, and fetch a user's attribute based on Keycloak user profile. 
 
 ## Version
-- Spring Boot 3.0.4
-- Keycloak 17
-- Red Hat OpenJDK 17
+- Spring Boot 3.3.0
+- keycloak-26.2.0
+- Red Hat OpenJDK 21
 
 ## Screenshots
 Keycloak User Profile
